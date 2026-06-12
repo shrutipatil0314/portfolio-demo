@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shruti Patil — Student & Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bb: #BFDFEF;
+    --bb-light: #E4F3FB;
+    --bb-mid: #7BBEDD;
+    --bb-dark: #185FA5;
+    --cream: #F6F1E9;
+    --cream-mid: #EDE5D6;
+    --cream-dark: #D6C9B4;
+    --cream-text: #8C7B65;
+    --white: #FFFDF9;
+    --text: #1E1E1C;
+    --text-soft: #5F5E5A;
+    --border: rgba(0,0,0,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,253,249,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--cream-dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; color: var(--text); text-decoration: none;
+    letter-spacing: 0.2px;
+  }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-soft);
+    font-size: 14px; font-weight: 400; letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--bb-dark); }
+
+  /* HERO */
+  .hero {
+    min-height: 88vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(180deg, var(--bb-light) 0%, var(--cream) 100%);
+    border-bottom: 0.5px solid var(--cream-dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: rgba(191,223,239,0.35);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -40px; left: -40px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: rgba(214,201,180,0.3);
+    pointer-events: none;
+  }
+  .avatar-wrap {
+    margin-bottom: 2rem; position: relative; z-index: 1;
+  }
+  .avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: var(--bb-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px; color: #042C53;
+    margin: 0 auto;
+    border: 4px solid var(--white);
+    outline: 3px solid var(--bb-mid);
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--bb-dark); font-weight: 500; margin-bottom: 0.75rem;
+    position: relative; z-index: 1;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 400; line-height: 1.15;
+    color: var(--text); margin-bottom: 0.75rem;
+    position: relative; z-index: 1;
+  }
+  .hero h1 em { font-style: italic; color: var(--bb-dark); }
+  .hero-sub {
+    font-size: 16px; color: var(--text-soft);
+    max-width: 480px; margin: 0 auto 2rem;
+    position: relative; z-index: 1;
+  }
+  .hero-badges {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    justify-content: center; margin-bottom: 2.5rem;
+    position: relative; z-index: 1;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--white); border: 0.5px solid var(--cream-dark);
+    color: var(--text-soft); font-size: 12.5px;
+    padding: 5px 14px; border-radius: 100px;
+  }
+  .badge.blue { background: var(--bb-light); color: var(--bb-dark); border-color: var(--bb-mid); }
+  .hero-cta {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    position: relative; z-index: 1;
+  }
+  .btn-primary {
+    background: var(--bb-dark); color: #fff;
+    border: none; padding: 12px 28px; border-radius: 100px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+    text-decoration: none; cursor: pointer; transition: opacity 0.2s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 0.5px solid var(--cream-dark); padding: 12px 28px; border-radius: 100px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400;
+    text-decoration: none; cursor: pointer; transition: border-color 0.2s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-outline:hover { border-color: var(--bb-mid); }
+
+  /* SECTIONS */
+  .section { padding: 5rem 3rem; max-width: 900px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--cream-text); font-weight: 500; margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; font-weight: 400; color: var(--text); margin-bottom: 2rem;
+  }
+
+  .section-divider { border: none; border-top: 0.5px solid var(--cream-dark); }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: start; }
+  .about-bio {
+    font-size: 16px; color: var(--text-soft); line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+  .about-bio strong { color: var(--text); font-weight: 500; }
+  .about-detail {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13.5px; color: var(--text-soft); margin-bottom: 10px;
+  }
+  .about-detail svg { width: 16px; height: 16px; stroke: var(--bb-mid); flex-shrink: 0; }
+  .about-detail a { color: var(--bb-dark); text-decoration: none; }
+  .about-detail a:hover { text-decoration: underline; }
+
+  .about-right {
+    background: var(--white); border: 0.5px solid var(--cream-dark);
+    border-radius: 16px; padding: 1.5rem;
+  }
+  .about-right h3 { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--cream-text); margin-bottom: 1rem; }
+  .mini-fact { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .mini-fact-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--bb-mid); flex-shrink: 0;
+  }
+  .mini-fact-dot.cream { background: var(--cream-dark); }
+  .mini-fact p { font-size: 14px; color: var(--text); font-weight: 500; }
+  .mini-fact span { font-size: 12px; color: var(--text-soft); }
+
+  /* SKILLS */
+  .skills-wrap { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .skill-group {
+    background: var(--white); border: 0.5px solid var(--cream-dark);
+    border-radius: 14px; padding: 1.25rem 1.5rem;
+  }
+  .skill-group h3 {
+    font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--cream-text); font-weight: 500; margin-bottom: 12px;
+  }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag {
+    font-size: 13px; padding: 4px 13px; border-radius: 8px;
+    background: var(--cream); color: var(--text-soft); border: 0.5px solid var(--cream-dark);
+  }
+  .tag.blue { background: var(--bb-light); color: var(--bb-dark); border-color: var(--bb-mid); }
+  .tag.lang { background: #EEF7ED; color: #2E6A2A; border: 0.5px solid #B2D9AF; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .contact-card {
+    background: var(--white); border: 0.5px solid var(--cream-dark);
+    border-radius: 14px; padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none; color: var(--text);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-card:hover { border-color: var(--bb-mid); background: var(--bb-light); }
+  .contact-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: var(--bb-light); border: 0.5px solid var(--bb-mid);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 22px; height: 22px; stroke: var(--bb-dark); }
+  .contact-label { font-size: 13px; font-weight: 500; margin-bottom: 2px; color: var(--text); }
+  .contact-value { font-size: 12.5px; color: var(--text-soft); }
+
+  /* FOOTER */
+  footer {
+    background: var(--cream-mid); border-top: 0.5px solid var(--cream-dark);
+    text-align: center; padding: 2rem 1rem;
+    font-size: 13px; color: var(--cream-text);
+  }
+  footer span { color: var(--bb-dark); }
+
+  @media (max-width: 640px) {
+    nav { padding: 0.85rem 1.25rem; }
+    .section { padding: 3.5rem 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .skills-wrap { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero { padding: 5rem 1.25rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Shruti Patil</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="avatar-wrap">
+    <div class="avatar">SP</div>
+  </div>
+  <p class="hero-eyebrow">Portfolio · 2026</p>
+  <h1>Shruti <em>Patil</em></h1>
+  <p class="hero-sub">Student &amp; Developer building scalable solutions in the cloud — one line of code at a time.</p>
+  <div class="hero-badges">
+    <span class="badge blue">AWS</span>
+    <span class="badge blue">Azure</span>
+    <span class="badge blue">Cloud Computing</span>
+    <span class="badge">Pune, India</span>
+    <span class="badge">Open to Internships</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Get in touch ↓</a>
+    <a href="https://github.com/shrutipatil0314" target="_blank" class="btn-outline">View GitHub →</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <p class="section-eyebrow">Who I am</p>
+  <h2 class="section-title">About me</h2>
+  <div class="about-grid">
+    <div>
+      <p class="about-bio">
+        I'm <strong>Shruti Patil</strong>, a student and developer from Pune, India with a passion for cloud computing and scalable digital solutions. I'm skilled in <strong>AWS and Azure</strong>, and I love turning ideas into real, working projects. I'm actively looking for cloud computing intern opportunities where I can grow, contribute, and learn from experienced teams.
+      </p>
+      <div class="about-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Pune, Maharashtra, India
+      </div>
+      <div class="about-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20M6 4v4M18 4v4"/></svg>
+        UTC +05:30
+      </div>
+      <div class="about-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:shrutipatil140312@gmail.com">shrutipatil140312@gmail.com</a>
+      </div>
+    </div>
+    <div class="about-right">
+      <h3>Quick facts</h3>
+      <div class="mini-fact">
+        <div class="mini-fact-dot"></div>
+        <div><p>Cloud intern candidate</p><span>AWS &amp; Azure focused</span></div>
+      </div>
+      <div class="mini-fact">
+        <div class="mini-fact-dot"></div>
+        <div><p>Active on GitHub</p><span>11 repositories &amp; counting</span></div>
+      </div>
+      <div class="mini-fact">
+        <div class="mini-fact-dot cream"></div>
+        <div><p>Multilingual</p><span>English, Hindi, Marathi, Korean</span></div>
+      </div>
+      <div class="mini-fact">
+        <div class="mini-fact-dot cream"></div>
+        <div><p>GitHub achievements</p><span>Pair Extraordinaire · Pull Shark · YOLO</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <p class="section-eyebrow">What I know</p>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-wrap">
+    <div class="skill-group">
+      <h3>Cloud platforms</h3>
+      <div class="tag-row">
+        <span class="tag blue">AWS</span>
+        <span class="tag blue">Azure</span>
+        <span class="tag blue">Global Catalog Mgmt</span>
+        <span class="tag blue">Scalable Systems</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Programming &amp; tools</h3>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">Git</span>
+        <span class="tag">GitHub</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Languages spoken</h3>
+      <div class="tag-row">
+        <span class="tag lang">English</span>
+        <span class="tag lang">Hindi</span>
+        <span class="tag lang">Marathi</span>
+        <span class="tag lang">Korean</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Currently learning</h3>
+      <div class="tag-row">
+        <span class="tag">Cloud Architecture</span>
+        <span class="tag">DevOps</span>
+        <span class="tag">CI/CD</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <p class="section-eyebrow">Let's connect</p>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:shrutipatil140312@gmail.com">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">shrutipatil140312@gmail.com</div>
+      </div>
+    </a>
+    <a class="contact-card" href="https://github.com/shrutipatil0314" target="_blank">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value">@shrutipatil0314</div>
+      </div>
+    </a>
+    <a class="contact-card" href="https://www.linkedin.com/in/patil-shruti-1a312a3555555555550333333331409225/" target="_blank">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">Shruti Patil</div>
+      </div>
+    </a>
+    <a class="contact-card" href="https://www.instagram.com/ft.skive" target="_blank">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Instagram</div>
+        <div class="contact-value">@ft.skive</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  Crafted with care by <span>Shruti Patil</span> · Pune, India · 2026
+</footer>
+
+</body>
+</html>
